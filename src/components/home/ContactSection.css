@@ -1,0 +1,101 @@
+.contact{
+
+padding:120px 80px;
+
+text-align:center;
+
+}
+
+.contact h2{
+
+font-size:55px;
+
+margin-bottom:15px;
+
+}
+
+.contact p{
+
+color:#94a3b8;
+
+margin-bottom:50px;
+
+}
+
+.contact form{
+
+max-width:850px;
+
+margin:auto;
+
+display:grid;
+
+gap:25px;
+
+}
+
+.contact input,
+
+.contact textarea,
+
+.contact select{
+
+padding:18px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:12px;
+
+color:white;
+
+font-size:18px;
+
+outline:none;
+
+}
+
+.contact select{
+
+color:white;
+
+}
+
+.contact option{
+
+background:#0f172a;
+
+}
+
+.contact textarea{
+
+resize:none;
+
+}
+
+.contact button{
+
+padding:18px;
+
+font-size:20px;
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.contact button:hover{
+
+background:#1d4ed8;
+
+}
