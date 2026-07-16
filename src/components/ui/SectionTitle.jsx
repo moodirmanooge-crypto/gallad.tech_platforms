@@ -1,16 +1,17 @@
-function SectionTitle({
-  title,
-  subtitle,
-}) {
-  return (
-    <div className="section-title">
+const SectionTitle = ({title,subtitle})=>{
 
-      <h2>{title}</h2>
+return(
 
-      <p>{subtitle}</p>
+<div className="section-title">
 
-    </div>
-  );
+<h2>{title}</h2>
+
+<p>{subtitle}</p>
+
+</div>
+
+)
+
 }
 
 export default SectionTitle;

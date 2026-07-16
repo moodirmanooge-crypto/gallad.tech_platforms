@@ -1,9 +1,11 @@
-function Badge({ children }) {
-  return (
-    <span className="badge">
-      {children}
-    </span>
-  );
-}
+const Badge=({children})=>(
+
+<span className="badge">
+
+{children}
+
+</span>
+
+)
 
 export default Badge;

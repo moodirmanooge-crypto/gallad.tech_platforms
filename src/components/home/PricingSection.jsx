@@ -1,5 +1,7 @@
 import "./PricingSection.css";
 import { FaCheck } from "react-icons/fa";
+import { useState } from "react";
+import OrderModal from "../orders/OrderModal";
 
 const plans = [
   {
@@ -17,17 +19,17 @@ const plans = [
     price: "$300",
     items: [
       "React",
-      "Firebase",
+      "Full backend",
       "Responsive",
       "Admin Dashboard",
     ],
   },
   {
     title: "Flutter App",
-    price: "$500",
+    price: "$700",
     items: [
       "Android",
-      "Firebase",
+      "Full backend",
       "Admin Panel",
       "Play Store Ready",
     ],
@@ -45,6 +47,14 @@ const plans = [
 ];
 
 function PricingSection() {
+  const [open, setOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+
+  const handleOrder = (service) => {
+    setSelectedService(service);
+    setOpen(true);
+  };
+
   return (
     <section className="pricing">
 
@@ -67,13 +77,24 @@ function PricingSection() {
               </p>
             ))}
 
-            <button>Order Now</button>
+            <button
+              onClick={() => handleOrder(plan.title)}
+            >
+              Order Now
+            </button>
 
           </div>
 
         ))}
 
       </div>
+
+      {/* HAL MODAL OO KELIYA */}
+      <OrderModal
+        open={open}
+        onClose={() => setOpen(false)}
+        service={selectedService}
+      />
 
     </section>
   );

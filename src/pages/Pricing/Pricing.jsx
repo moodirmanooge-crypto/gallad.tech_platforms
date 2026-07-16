@@ -1,5 +1,11 @@
+import PricingSection from "../../components/home/PricingSection";
+
 function Pricing() {
-  return <h1>Pricing Page</h1>;
+  return (
+    <main>
+      <PricingSection />
+    </main>
+  );
 }
 
 export default Pricing;

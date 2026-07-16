@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCXOp6MPnwArV0NiPPAmkBBKdvQocOgadk",
@@ -8,8 +9,12 @@ const firebaseConfig = {
   storageBucket: "rawaan-online-shop.firebasestorage.app",
   messagingSenderId: "492970437433",
   appId: "1:492970437433:web:0d4e128992025eb06b56e8",
+  measurementId: "G-EK1CH98QH9"
 };
 
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
+export const auth = getAuth(app);
+
+export default app;

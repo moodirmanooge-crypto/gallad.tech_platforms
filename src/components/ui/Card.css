@@ -1,0 +1,21 @@
+.gtp-card{
+
+background:#111c3d;
+
+border-radius:20px;
+
+padding:30px;
+
+transition:.4s;
+
+border:1px solid rgba(255,255,255,.05);
+
+}
+
+.gtp-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 25px 60px rgba(37,99,235,.3);
+
+}

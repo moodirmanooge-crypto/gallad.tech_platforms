@@ -1,12 +1,11 @@
-import FadeIn from "../animations/FadeIn";
-import SlideUp from "../animations/SlideUp";
+import "./Card.css";
 
-<FadeIn>
-<section className="hero">
+const Card = ({ children }) => {
+    return (
+        <div className="gtp-card">
+            {children}
+        </div>
+    );
+};
 
-    <SlideUp>
-        <h1>Building The Future...</h1>
-    </SlideUp>
-
-</section>
-</FadeIn>
+export default Card;

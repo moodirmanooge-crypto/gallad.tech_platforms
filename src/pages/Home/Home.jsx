@@ -10,6 +10,7 @@ import Trusted from "../../components/home/Trusted";
 import WhyChoose from "../../components/home/WhyChoose";
 import PricingSection from "../../components/home/PricingSection";
 import ContactSection from "../../components/home/ContactSection";
+import FeaturedProjects from "../../components/projects/FeaturedProjects";
 
 function Home() {
   return (
@@ -18,6 +19,10 @@ function Home() {
 
       <div style={{ paddingTop: "85px" }}>
         <Hero />
+         
+
+        <FeaturedProjects />
+
 
         <Services />
 
