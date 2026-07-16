@@ -1,9 +1,12 @@
-function Card({ children }) {
-  return (
-    <div className="card">
-      {children}
-    </div>
-  );
-}
+import FadeIn from "../animations/FadeIn";
+import SlideUp from "../animations/SlideUp";
 
-export default Card;
+<FadeIn>
+<section className="hero">
+
+    <SlideUp>
+        <h1>Building The Future...</h1>
+    </SlideUp>
+
+</section>
+</FadeIn>
