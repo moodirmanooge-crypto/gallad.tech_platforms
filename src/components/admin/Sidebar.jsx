@@ -26,6 +26,8 @@ export default function Sidebar() {
 
         <Link to="/admin/statistics">Statistics</Link>
 
+        <Link to="/admin/content">Content Manager</Link>
+
         <Link to="/admin/settings">Settings</Link>
       </nav>
     </div>

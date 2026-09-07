@@ -99,3 +99,33 @@ transition:.3s;
 background:#1d4ed8;
 
 }
+@media (max-width: 768px){
+
+.contact{
+padding:60px 20px;
+}
+
+.contact h2{
+font-size:28px;
+}
+
+.contact p{
+margin-bottom:30px;
+font-size:15px;
+}
+
+.contact input,
+
+.contact textarea,
+
+.contact select{
+padding:14px;
+font-size:16px;
+}
+
+.contact button{
+padding:15px;
+font-size:17px;
+}
+
+}

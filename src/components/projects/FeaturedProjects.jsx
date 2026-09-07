@@ -1,6 +1,9 @@
 import "./FeaturedProjects.css";
+import { useEffect, useState } from "react";
+import { subscribeToCollection } from "../../firebase/homeContent";
 
-const projects = [
+// Original hardcoded projects, used as a fallback until Firestore has data.
+const defaultProjects = [
   {
     title: "Dream CRT Academy",
     type: "Trading Education Platform",
@@ -24,6 +27,20 @@ const projects = [
 ];
 
 export default function FeaturedProjects() {
+  const [projects, setProjects] = useState(defaultProjects);
+
+  useEffect(() => {
+    const unsubscribe = subscribeToCollection("featuredProjects", (items) => {
+      if (items.length > 0) {
+        setProjects(items);
+      } else {
+        setProjects(defaultProjects);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
     <section className="featured-projects">
 
@@ -37,7 +54,7 @@ export default function FeaturedProjects() {
 
         {projects.map((project, index) => (
 
-          <div className="project-card" key={index}>
+          <div className="project-card" key={project.id || index}>
 
             <img
               src={project.image}

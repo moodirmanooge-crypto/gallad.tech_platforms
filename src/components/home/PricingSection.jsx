@@ -1,54 +1,129 @@
 import "./PricingSection.css";
-import { FaCheck } from "react-icons/fa";
-import { useState } from "react";
+import { FaCheckCircle, FaArrowRight } from "react-icons/fa";
+import {
+  FaVideo,
+  FaGlobe,
+  FaMobileAlt,
+  FaCashRegister,
+  FaCrown,
+  FaHeadset,
+  FaShieldAlt,
+  FaBolt,
+  FaUsers,
+} from "react-icons/fa";
+import { useEffect, useState } from "react";
 import OrderModal from "../orders/OrderModal";
+import { subscribeToCollection } from "../../firebase/homeContent";
 
-const plans = [
+const ICONS = {
+  FaVideo: <FaVideo />,
+  FaGlobe: <FaGlobe />,
+  FaMobileAlt: <FaMobileAlt />,
+  FaCashRegister: <FaCashRegister />,
+};
+
+// Original hardcoded plans, used as a fallback until Firestore has data.
+const defaultPlans = [
   {
+    icon: "FaVideo",
     title: "AI Video",
-    price: "$20",
+    subtitle: "Short, professional videos",
+    price: "15",
     items: [
-      "30 Seconds",
+      "30 seconds - 1 minute",
+      "5 Muuqaal",
       "Professional Voice",
       "Music Included",
       "HD Quality",
     ],
+    popular: false,
   },
   {
+    icon: "FaGlobe",
     title: "Website",
-    price: "$300",
+    subtitle: "Modern & professional website",
+    price: "150",
     items: [
-      "React",
-      "Full backend",
-      "Responsive",
-      "Admin Dashboard",
+      "Professional Website",
+      "Mobile & Desktop Friendly",
+      "Modern Design",
+      "Contact & Information Pages",
+      "Easy to Update",
+      "Basic Admin Management",
     ],
+    popular: true,
   },
   {
+    icon: "FaMobileAlt",
     title: "Flutter App",
-    price: "$700",
+    subtitle: "Android app with full features",
+    price: "700",
     items: [
       "Android",
       "Full backend",
       "Admin Panel",
       "Play Store Ready",
+      "Modern UI/UX",
+      "Free Support",
     ],
+    popular: false,
   },
   {
+    icon: "FaCashRegister",
     title: "POS System",
-    price: "$800",
+    subtitle: "Complete business solution",
+    price: "800",
     items: [
       "Restaurant",
       "Pharmacy",
       "QR Ordering",
       "Dashboard",
+      "Inventory Management",
+      "Reports & Analytics",
     ],
+    popular: false,
+  },
+];
+
+const trustPoints = [
+  {
+    icon: <FaHeadset />,
+    title: "24/7 Support",
+    desc: "We're always here",
+  },
+  {
+    icon: <FaShieldAlt />,
+    title: "High Quality",
+    desc: "Professional work",
+  },
+  {
+    icon: <FaBolt />,
+    title: "Fast Delivery",
+    desc: "On time always",
+  },
+  {
+    icon: <FaUsers />,
+    title: "100+ Happy Clients",
+    desc: "Trusted worldwide",
   },
 ];
 
 function PricingSection() {
+  const [plans, setPlans] = useState(defaultPlans);
   const [open, setOpen] = useState(false);
   const [selectedService, setSelectedService] = useState("");
+
+  useEffect(() => {
+    const unsubscribe = subscribeToCollection("pricingPlans", (items) => {
+      if (items.length > 0) {
+        setPlans(items);
+      } else {
+        setPlans(defaultPlans);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handleOrder = (service) => {
     setSelectedService(service);
@@ -58,35 +133,81 @@ function PricingSection() {
   return (
     <section className="pricing">
 
-      <h2>Our Pricing</h2>
+      <div className="pricing-eyebrow">OUR PACKAGES</div>
+
+      <h2>
+        Choose The <span>Right Plan</span> For You
+      </h2>
+
+      <p className="pricing-subhead">
+        High quality digital solutions at affordable prices
+      </p>
 
       <div className="pricing-grid">
 
         {plans.map((plan, index) => (
 
-          <div className="price-card" key={index}>
+          <div
+            className={`price-card ${plan.popular ? "price-card-popular" : ""}`}
+            key={plan.id || index}
+          >
+
+            {plan.popular && (
+              <div className="popular-badge">
+                <FaCrown /> Most Popular
+              </div>
+            )}
+
+            <div className="price-card-top">
+              <span className="price-card-icon">
+                {ICONS[plan.icon] || <FaGlobe />}
+              </span>
+              <span className="price-card-num">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+            </div>
 
             <h3>{plan.title}</h3>
+            {plan.subtitle && (
+              <p className="price-card-subtitle">{plan.subtitle}</p>
+            )}
 
-            <h1>{plan.price}</h1>
+            <div className="price-card-amount">
+              <span className="price-currency">$</span>
+              <span>{plan.price}</span>
+            </div>
 
-            {plan.items.map((item, i) => (
-              <p key={i}>
-                <FaCheck />
-                {item}
-              </p>
-            ))}
+            <div className="price-card-items">
+              {(plan.items || []).map((item, i) => (
+                <p key={i}>
+                  <FaCheckCircle className="check-icon" />
+                  {item}
+                </p>
+              ))}
+            </div>
 
             <button
               onClick={() => handleOrder(plan.title)}
             >
-              Order Now
+              Order Now <FaArrowRight />
             </button>
 
           </div>
 
         ))}
 
+      </div>
+
+      <div className="pricing-trust">
+        {trustPoints.map((point) => (
+          <div className="pricing-trust-item" key={point.title}>
+            <span className="pricing-trust-icon">{point.icon}</span>
+            <div>
+              <strong>{point.title}</strong>
+              <span>{point.desc}</span>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* HAL MODAL OO KELIYA */}

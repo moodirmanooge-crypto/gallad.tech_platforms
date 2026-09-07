@@ -59,3 +59,33 @@
     border-radius:10px;
     text-decoration:none;
 }
+
+@media (max-width: 768px){
+
+.featured-projects{
+    padding:60px 6%;
+}
+
+.featured-projects h2{
+    font-size:30px;
+}
+
+.featured-projects p{
+    margin:14px 0 40px;
+    font-size:15px;
+}
+
+.project-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+.project-card img{
+    height:200px;
+}
+
+.project-content{
+    padding:20px;
+}
+
+}

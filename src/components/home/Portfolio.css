@@ -50,3 +50,24 @@ margin-bottom:8px;
 .overlay p{
 color:#cbd5e1;
 }
+@media (max-width: 768px){
+
+.portfolio{
+padding:60px 20px;
+}
+
+.portfolio h2{
+font-size:30px;
+margin-bottom:30px;
+}
+
+.portfolio-grid{
+grid-template-columns:1fr;
+gap:20px;
+}
+
+.portfolio-card img{
+height:220px;
+}
+
+}

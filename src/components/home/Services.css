@@ -41,3 +41,36 @@
   color: #94a3b8;
   line-height: 1.7;
 }
+
+@media (max-width: 768px) {
+
+  .services {
+    padding: 60px 20px;
+  }
+
+  .services h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
+
+  .icon {
+    font-size: 34px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}

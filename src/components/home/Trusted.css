@@ -91,3 +91,30 @@ transform:translateX(-50%);
 }
 
 }
+@media (max-width: 768px){
+
+.trusted{
+padding:60px 0;
+}
+
+.trusted h3{
+font-size:26px;
+margin-bottom:35px;
+padding:0 20px;
+}
+
+.logo-card{
+min-width:140px;
+height:100px;
+}
+
+.logo-icon{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.logo-card p{
+font-size:15px;
+}
+
+}

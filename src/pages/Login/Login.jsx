@@ -31,9 +31,17 @@ function Login() {
     }
 
     try {
-      await sendPasswordResetEmail(auth, email);
+      // Send the person back to our own /reset-password page (not
+      // Firebase's default hosted page) so the reset flow matches
+      // the rest of the website's design.
+      const actionCodeSettings = {
+        url: `${window.location.origin}/reset-password`,
+        handleCodeInApp: true,
+      };
 
-      alert("Password reset email waa laguu diray.");
+      await sendPasswordResetEmail(auth, email, actionCodeSettings);
+
+      alert("Password reset email waa laguu diray. Fadlan hubi inbox-kaaga.");
     } catch (error) {
       alert(error.message);
     }

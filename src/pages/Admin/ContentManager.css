@@ -1,0 +1,363 @@
+.cm-wrap {
+  padding: 30px;
+}
+
+.cm-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.cm-tab {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.cm-tab.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+}
+
+.cm-tab:hover:not(.active) {
+  border-color: #2563eb;
+}
+
+.cm-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.cm-add-btn:hover {
+  background: #15803d;
+}
+
+.cm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cm-card {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.cm-card-order {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.cm-order-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cm-order-btn:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.cm-order-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.cm-order-num {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.cm-card-preview {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
+}
+
+.cm-card-icon-preview {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  background: rgba(37, 99, 235, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.cm-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.cm-card-body h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.cm-card-body p {
+  margin: 0 0 4px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.cm-card-body .cm-price {
+  color: #3b82f6;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.cm-card-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cm-edit-btn,
+.cm-delete-btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cm-edit-btn {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+}
+
+.cm-edit-btn:hover {
+  background: #2563eb;
+  color: white;
+}
+
+.cm-delete-btn {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.cm-delete-btn:hover {
+  background: #ef4444;
+  color: white;
+}
+
+.cm-empty {
+  color: #64748b;
+  text-align: center;
+  padding: 60px 20px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+}
+
+/* Modal */
+.cm-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.cm-modal {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.cm-modal h2 {
+  margin: 0 0 22px;
+  font-size: 20px;
+}
+
+.cm-field {
+  margin-bottom: 16px;
+}
+
+.cm-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.cm-field input,
+.cm-field textarea,
+.cm-field select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.cm-field select option {
+  background: #1e293b;
+}
+
+.cm-field textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.cm-upload-preview {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cm-upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+  border: 1px dashed #2563eb;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.cm-upload-btn:hover {
+  background: rgba(37, 99, 235, 0.25);
+}
+
+.cm-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cm-item-row {
+  display: flex;
+  gap: 8px;
+}
+
+.cm-item-row input {
+  flex: 1;
+}
+
+.cm-item-remove {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: none;
+  width: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cm-item-add {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.cm-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.cm-cancel-btn,
+.cm-save-btn {
+  flex: 1;
+  border: none;
+  padding: 13px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.cm-cancel-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.cm-save-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.cm-save-btn:disabled {
+  background: #64748b;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .cm-card {
+    flex-wrap: wrap;
+  }
+
+  .cm-card-actions {
+    width: 100%;
+  }
+
+  .cm-edit-btn,
+  .cm-delete-btn {
+    flex: 1;
+  }
+}

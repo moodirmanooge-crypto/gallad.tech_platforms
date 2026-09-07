@@ -1,0 +1,521 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.bio-page {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 40px;
+  background:
+    radial-gradient(circle at 15% 100%, rgba(37, 99, 235, 0.25), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(37, 99, 235, 0.18), transparent 40%),
+    radial-gradient(circle at 50% 10%, rgba(37, 99, 235, 0.16), transparent 55%),
+    linear-gradient(180deg, #060a14 0%, #050810 100%);
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: #eef2f8;
+  overflow: hidden;
+  position: relative;
+}
+
+.bio-inner {
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Top bar ---------- */
+
+.bio-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  animation: bioRise 0.5s ease both;
+}
+
+.bio-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bio-brand-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.bio-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.bio-brand-name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.bio-brand-name span {
+  color: #3b82f6;
+}
+
+.bio-brand-sub {
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.bio-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #eef2f8;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.bio-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.bio-menu-btn:active {
+  transform: scale(0.96);
+}
+
+/* ---------- Header / hero ---------- */
+
+.bio-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.bio-mark {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bioMarkIn 0.6s ease both;
+}
+
+.bio-mark::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.45), transparent 70%);
+  animation: bioGlow 4.5s ease-in-out infinite;
+}
+
+.bio-mark img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2563eb;
+  box-shadow: 0 0 26px rgba(37, 99, 235, 0.65), 0 0 60px rgba(37, 99, 235, 0.35);
+  background: #0f172a;
+}
+
+.bio-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+  animation: bioRise 0.6s ease 0.1s both;
+}
+
+.bio-name .bio-name-accent {
+  color: #2563eb;
+}
+
+.bio-tagline-small {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  color: #7c8aa5;
+  margin: 0 0 20px;
+  animation: bioRise 0.6s ease 0.16s both;
+}
+
+.bio-tagline {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #b9c3d6;
+  margin: 0;
+  max-width: 340px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 14px 20px;
+  border-radius: 16px;
+  animation: bioRise 0.6s ease 0.22s both;
+}
+
+.bio-tagline .bio-emoji {
+  margin-left: 4px;
+}
+
+/* ---------- Service tags ---------- */
+
+.bio-tags {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 26px 0 28px;
+}
+
+.bio-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 14px 6px;
+  text-align: center;
+  animation: bioRise 0.5s ease both;
+}
+
+.bio-tag:nth-child(1) { animation-delay: 0.26s; }
+.bio-tag:nth-child(2) { animation-delay: 0.3s; }
+.bio-tag:nth-child(3) { animation-delay: 0.34s; }
+.bio-tag:nth-child(4) { animation-delay: 0.38s; }
+
+.bio-tag-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+.bio-tag span:last-child {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #cbd5e1;
+  line-height: 1.3;
+}
+
+/* ---------- Contact list ---------- */
+
+.bio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bio-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 16px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: bioRise 0.5s ease both;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bio-row:active {
+  transform: scale(0.98);
+}
+
+.bio-row:nth-child(1) { animation-delay: 0.42s; }
+.bio-row:nth-child(2) { animation-delay: 0.47s; }
+.bio-row:nth-child(3) { animation-delay: 0.52s; }
+.bio-row:nth-child(4) { animation-delay: 0.57s; }
+.bio-row:nth-child(5) { animation-delay: 0.62s; }
+
+.bio-row-whatsapp {
+  background: linear-gradient(90deg, rgba(37, 168, 78, 0.9), rgba(20, 110, 60, 0.75));
+  box-shadow: 0 10px 26px rgba(37, 168, 78, 0.22);
+}
+
+.bio-row-call {
+  background: linear-gradient(90deg, rgba(37, 99, 235, 0.85), rgba(23, 55, 130, 0.75));
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.22);
+}
+
+.bio-row-facebook {
+  background: linear-gradient(90deg, rgba(24, 119, 242, 0.85), rgba(16, 70, 150, 0.75));
+  box-shadow: 0 10px 26px rgba(24, 119, 242, 0.2);
+}
+
+.bio-row-tiktok {
+  background: linear-gradient(90deg, rgba(180, 30, 90, 0.82), rgba(60, 20, 70, 0.78));
+  box-shadow: 0 10px 26px rgba(180, 30, 90, 0.2);
+}
+
+.bio-row-email {
+  background: linear-gradient(90deg, rgba(220, 55, 55, 0.85), rgba(140, 25, 30, 0.78));
+  box-shadow: 0 10px 26px rgba(220, 55, 55, 0.2);
+}
+
+.bio-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  color: #ffffff;
+}
+
+.bio-row-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.bio-row-label {
+  font-size: 15.5px;
+  font-weight: 700;
+  margin: 0 0 3px;
+}
+
+.bio-row-value {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bio-chevron {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 15px;
+}
+
+.bio-badge {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.bio-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: bioDot 1.8s ease-in-out infinite;
+}
+
+/* ---------- Social row ---------- */
+
+.bio-socials {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 34px 0 18px;
+  animation: bioRise 0.5s ease 0.68s both;
+}
+
+.bio-social {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 17px;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.bio-social:active {
+  transform: scale(0.92);
+}
+
+.bio-social-facebook { background: #1877f2; }
+.bio-social-tiktok { background: #000000; border: 1px solid rgba(255,255,255,0.15); }
+.bio-social-youtube { background: #ff0000; }
+.bio-social-linkedin { background: #0a66c2; }
+.bio-social-x { background: #000000; border: 1px solid rgba(255,255,255,0.15); }
+
+/* ---------- Footer link ---------- */
+
+.bio-footer {
+  text-align: center;
+  margin-bottom: 30px;
+  animation: bioRise 0.5s ease 0.72s both;
+}
+
+.bio-footer-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 4px;
+}
+
+.bio-footer-line::before,
+.bio-footer-line::after {
+  content: "";
+  width: 46px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.bio-footer a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.bio-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Stats strip ---------- */
+
+.bio-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 16px 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 20px;
+  animation: bioRise 0.5s ease 0.76s both;
+}
+
+.bio-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.bio-stat-icon {
+  color: #3b82f6;
+  font-size: 17px;
+}
+
+.bio-stat span:last-child {
+  font-size: 11px;
+  color: #8592ab;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.bio-copyright {
+  text-align: center;
+  font-size: 11.5px;
+  color: #55617a;
+  line-height: 1.8;
+  animation: bioRise 0.5s ease 0.8s both;
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes bioMarkIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bioRise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bioGlow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes bioDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bio-mark,
+  .bio-name,
+  .bio-tagline-small,
+  .bio-tagline,
+  .bio-tag,
+  .bio-row,
+  .bio-socials,
+  .bio-footer,
+  .bio-stats,
+  .bio-copyright,
+  .bio-topbar {
+    animation: none;
+  }
+
+  .bio-mark::before,
+  .bio-badge-dot {
+    animation: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .bio-name {
+    font-size: 32px;
+  }
+
+  .bio-mark {
+    width: 104px;
+    height: 104px;
+  }
+
+  .bio-tags {
+    gap: 8px;
+  }
+
+  .bio-tag {
+    padding: 12px 4px;
+  }
+}
+
+/* Keyboard accessibility */
+.bio-row:focus-visible,
+.bio-menu-btn:focus-visible,
+.bio-social:focus-visible,
+.bio-footer a:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
