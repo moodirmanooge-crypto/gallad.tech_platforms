@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/layout/Footer";
@@ -52,9 +54,25 @@ export default function Portfolio() {
         style={{
           minHeight: "100vh",
           background: "#0f172a",
-          padding: "120px 8%",
+          padding: "120px 8% 0",
         }}
       >
+        <Link
+          to="/"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 10,
+            color: "#93c5fd",
+            textDecoration: "none",
+            fontSize: 15,
+            fontWeight: 600,
+            marginBottom: 20,
+          }}
+        >
+          <FaArrowLeft /> Back to Home
+        </Link>
+
         <h1
           style={{
             color: "#fff",
@@ -65,29 +83,34 @@ export default function Portfolio() {
           Our Portfolio
         </h1>
 
-        <PortfolioStats />
+        {/* ===== Firestore-managed, animated sections — shown first ===== */}
+        <GallerySlider />
 
-       <PortfolioReviews />
+        <Awards />
 
-        <FeaturedProject />
+        <GlobalClients />
+
         <VideoShowcase />
 
-       <GallerySlider />
+        {/* ===== Everything else follows below ===== */}
+        <PortfolioStats />
 
-       <Awards />
+        <PortfolioReviews />
 
-       <GlobalClients />
-      <AnimatedCounter />
+        <FeaturedProject />
 
-      <CaseStudies />
+        <AnimatedCounter />
 
-      <Timeline />
+        <CaseStudies />
 
-      <FAQ />
+        <Timeline />
 
-       <CallToAction />
+        <FAQ />
 
-       <PremiumAnimation />
+        <CallToAction />
+
+        <PremiumAnimation />
+
         <TechStack />
 
         <PortfolioSearch

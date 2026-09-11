@@ -1,25 +1,37 @@
-const awards = [
-  "/certificates/award1.png.jpeg",
-  "/certificates/award2.png.jpeg",
+import { useEffect, useState } from "react";
+import { subscribeToCollection } from "../../firebase/homeContent";
+import PortfolioMediaItem from "./PortfolioMediaItem";
+import AnimatedHeading from "../animations/AnimatedHeading";
+
+const defaultAwards = [
+  {
+    image: "/certificates/award1.png.jpeg",
+    caption: "GalladTech Platforms — Certificate of Excellence",
+  },
+  {
+    image: "/certificates/award2.png.jpeg",
+    caption: "Gulled Ibrahim Dahir — Certificate of Excellence",
+  },
 ];
 
 export default function Awards() {
+  const [awards, setAwards] = useState(defaultAwards);
+
+  useEffect(() => {
+    const unsubscribe = subscribeToCollection("portfolioAwards", (items) => {
+      if (items.length > 0) {
+        setAwards(items);
+      } else {
+        setAwards(defaultAwards);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
-    <section
-      style={{
-        marginTop: 100,
-      }}
-    >
-      <h2
-        style={{
-          color: "#fff",
-          textAlign: "center",
-          marginBottom: 40,
-          fontSize: 40,
-        }}
-      >
-        Awards & Certificates
-      </h2>
+    <section style={{ marginTop: 100 }}>
+      <AnimatedHeading text="Awards & Certificates" />
 
       <div
         style={{
@@ -29,16 +41,14 @@ export default function Awards() {
           flexWrap: "wrap",
         }}
       >
-        {awards.map((img, i) => (
-          <img
-            key={i}
-            src={img}
-            alt=""
-            style={{
-              width: 300,
-              borderRadius: 15,
-              boxShadow: "0 10px 30px rgba(0,0,0,.4)",
-            }}
+        {awards.map((item, i) => (
+          <PortfolioMediaItem
+            key={item.id || `default_${i}`}
+            itemKey={`award_${item.id || `default_${i}`}`}
+            image={item.image}
+            caption={item.caption}
+            index={i}
+            variant="award"
           />
         ))}
       </div>

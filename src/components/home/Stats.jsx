@@ -1,4 +1,5 @@
 import "./Stats.css";
+import CornerReveal from "../animations/CornerReveal";
 
 const stats = [
   {
@@ -27,13 +28,15 @@ function Stats() {
 
         {stats.map((item, index) => (
 
-          <div className="stat-card" key={index}>
+          <CornerReveal index={index} key={index}>
+            <div className="stat-card">
 
-            <h2>{item.number}</h2>
+              <h2>{item.number}</h2>
 
-            <p>{item.title}</p>
+              <p>{item.title}</p>
 
-          </div>
+            </div>
+          </CornerReveal>
 
         ))}
 

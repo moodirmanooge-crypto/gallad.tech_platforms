@@ -14,6 +14,9 @@ import {
 import { useEffect, useState } from "react";
 import OrderModal from "../orders/OrderModal";
 import { subscribeToCollection } from "../../firebase/homeContent";
+import AnimatedHeading from "../animations/AnimatedHeading";
+import CornerReveal from "../animations/CornerReveal";
+import SlideUp from "../animations/SlideUp";
 
 const ICONS = {
   FaVideo: <FaVideo />,
@@ -135,9 +138,11 @@ function PricingSection() {
 
       <div className="pricing-eyebrow">OUR PACKAGES</div>
 
-      <h2>
-        Choose The <span>Right Plan</span> For You
-      </h2>
+      <AnimatedHeading
+        text="Choose The Right Plan For You"
+        highlight={["Right", "Plan"]}
+        style={{ fontSize: 48, fontWeight: 800, marginBottom: 14 }}
+      />
 
       <p className="pricing-subhead">
         High quality digital solutions at affordable prices
@@ -147,9 +152,9 @@ function PricingSection() {
 
         {plans.map((plan, index) => (
 
+          <CornerReveal index={index} key={plan.id || index}>
           <div
             className={`price-card ${plan.popular ? "price-card-popular" : ""}`}
-            key={plan.id || index}
           >
 
             {plan.popular && (
@@ -193,6 +198,7 @@ function PricingSection() {
             </button>
 
           </div>
+          </CornerReveal>
 
         ))}
 
@@ -200,13 +206,15 @@ function PricingSection() {
 
       <div className="pricing-trust">
         {trustPoints.map((point) => (
-          <div className="pricing-trust-item" key={point.title}>
-            <span className="pricing-trust-icon">{point.icon}</span>
-            <div>
-              <strong>{point.title}</strong>
-              <span>{point.desc}</span>
+          <SlideUp key={point.title}>
+            <div className="pricing-trust-item">
+              <span className="pricing-trust-icon">{point.icon}</span>
+              <div>
+                <strong>{point.title}</strong>
+                <span>{point.desc}</span>
+              </div>
             </div>
-          </div>
+          </SlideUp>
         ))}
       </div>
 

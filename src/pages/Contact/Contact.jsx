@@ -1,98 +1,128 @@
 import "./Contact.css";
+import { Link } from "react-router-dom";
 import {
   FaWhatsapp,
   FaEnvelope,
   FaPaperPlane,
+  FaArrowLeft,
 } from "react-icons/fa";
+import Navbar from "../../components/common/Navbar";
+import Footer from "../../components/layout/Footer";
 
 function Contact() {
   return (
-    <section className="contact-page">
+    <>
+      <Navbar />
 
-      <div className="contact-container">
-
-        <div className="contact-left">
-
-          <h1>Let's Work Together</h1>
-
-          <p>
-            Have a project in mind?
-            Contact Gallad.Tech Platforms today.
-          </p>
-
-          <a
-            href="https://wa.me/252628276993"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-card"
+      <div style={{ paddingTop: "85px", background: "#0f172a" }}>
+        <div style={{ padding: "20px 8% 0" }}>
+          <Link
+            to="/"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 10,
+              color: "#93c5fd",
+              textDecoration: "none",
+              fontSize: 15,
+              fontWeight: 600,
+            }}
           >
-            <FaWhatsapp />
-
-            <div>
-              <h3>WhatsApp</h3>
-              <p>+252 628 276 993</p>
-            </div>
-
-          </a>
-
-          <a
-            href="mailto:galladtechplatforms@gmail.com"
-            className="contact-card"
-          >
-            <FaEnvelope />
-
-            <div>
-              <h3>Email</h3>
-              <p>galladtechplatforms@gmail.com</p>
-            </div>
-
-          </a>
-
+            <FaArrowLeft /> Back to Home
+          </Link>
         </div>
 
-        <div className="contact-right">
+        <section className="contact-page">
 
-          <form
-            action="https://formsubmit.co/galladtechplatforms@gmail.com"
-            method="POST"
-          >
+          <div className="contact-container">
 
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              required
-            />
+            <div className="contact-left">
 
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-            />
+              <h1>Let's Work Together</h1>
 
-            <textarea
-              rows="6"
-              name="message"
-              placeholder="Write your message..."
-              required
-            ></textarea>
+              <p>
+                Have a project in mind?
+                Contact Gallad.Tech Platforms today.
+              </p>
 
-            <button type="submit">
+              <a
+                href="https://wa.me/252628276993"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-card"
+              >
+                <FaWhatsapp />
 
-              <FaPaperPlane />
+                <div>
+                  <h3>WhatsApp</h3>
+                  <p>+252 628 276 993</p>
+                </div>
 
-              Send Message
+              </a>
 
-            </button>
+              <a
+                href="mailto:galladtechplatforms@gmail.com"
+                className="contact-card"
+              >
+                <FaEnvelope />
 
-          </form>
+                <div>
+                  <h3>Email</h3>
+                  <p>galladtechplatforms@gmail.com</p>
+                </div>
 
-        </div>
+              </a>
+
+            </div>
+
+            <div className="contact-right">
+
+              <form
+                action="https://formsubmit.co/galladtechplatforms@gmail.com"
+                method="POST"
+              >
+
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+
+                <textarea
+                  rows="6"
+                  name="message"
+                  placeholder="Write your message..."
+                  required
+                ></textarea>
+
+                <button type="submit">
+
+                  <FaPaperPlane />
+
+                  Send Message
+
+                </button>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </section>
 
       </div>
 
-    </section>
+      <Footer />
+    </>
   );
 }
 

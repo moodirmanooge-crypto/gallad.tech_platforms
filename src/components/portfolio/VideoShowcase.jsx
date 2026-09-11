@@ -1,4 +1,27 @@
+import { useEffect, useState } from "react";
+import { subscribeToDoc } from "../../firebase/homeContent";
+import AnimatedHeading from "../animations/AnimatedHeading";
+
+const defaultDemo = {
+  videoUrl: "/videos/demo.mp4",
+  posterUrl: "/clients/galladpos.png",
+};
+
 export default function VideoShowcase() {
+  const [demo, setDemo] = useState(defaultDemo);
+
+  useEffect(() => {
+    const unsubscribe = subscribeToDoc("portfolioDemo", "main", (data) => {
+      if (data && data.videoUrl) {
+        setDemo(data);
+      } else {
+        setDemo(defaultDemo);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
     <section
       style={{
@@ -6,16 +29,7 @@ export default function VideoShowcase() {
         marginBottom: 100,
       }}
     >
-      <h2
-        style={{
-          color: "#fff",
-          textAlign: "center",
-          fontSize: 40,
-          marginBottom: 40,
-        }}
-      >
-        Watch Our Demo
-      </h2>
+      <AnimatedHeading text="Watch Our Demo" style={{ marginBottom: 40 }} />
 
       <div
         style={{
@@ -27,14 +41,15 @@ export default function VideoShowcase() {
         }}
       >
         <video
+          key={demo.videoUrl}
           autoPlay
           muted
           loop
           controls
           width="100%"
-          poster="/clients/galladpos.png"
+          poster={demo.posterUrl}
         >
-          <source src="/videos/demo.mp4" type="video/mp4" />
+          <source src={demo.videoUrl} type="video/mp4" />
         </video>
       </div>
     </section>

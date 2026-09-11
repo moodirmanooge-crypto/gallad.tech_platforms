@@ -1,0 +1,253 @@
+.pm-video-panel {
+  max-width: 600px;
+}
+
+.pm-video-preview {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000;
+}
+
+.pm-poster-preview {
+  width: 100%;
+  max-width: 260px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pm-save-note {
+  color: #64748b;
+  font-size: 13px;
+  margin-top: 14px;
+}
+
+.pm-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+.pm-image-card {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.pm-image-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.pm-image-caption {
+  color: #94a3b8;
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 10px 12px 0;
+}
+
+.pm-image-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pm-image-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.pm-image-edit {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.pm-image-edit:hover {
+  background: #2563eb;
+  color: white;
+}
+
+.pm-toolbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.pm-toolbar .cm-add-btn {
+  margin-bottom: 0;
+}
+
+.pm-seed-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #cbd5e1;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pm-seed-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.pm-seed-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pm-engagement {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 12px 12px;
+}
+
+.pm-engagement-stats {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pm-like-stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pm-comment-toggle {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.pm-comment-toggle:hover {
+  color: #3b82f6;
+}
+
+.pm-comment-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.pm-comment-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 7px 9px;
+  font-size: 12px;
+}
+
+.pm-comment-item strong {
+  color: #e2e8f0;
+  margin-right: 5px;
+}
+
+.pm-comment-item span {
+  color: #94a3b8;
+  word-break: break-word;
+}
+
+.pm-comment-item button {
+  flex-shrink: 0;
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: none;
+  padding: 4px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pm-comment-item button:hover {
+  background: #ef4444;
+  color: white;
+}
+
+.pm-no-comments {
+  color: #64748b;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
+.pm-image-order {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pm-image-order button {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pm-image-order button:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.pm-image-order button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pm-image-delete {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.pm-image-delete:hover {
+  background: #ef4444;
+  color: white;
+}
+
+@media (max-width: 640px) {
+  .pm-image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

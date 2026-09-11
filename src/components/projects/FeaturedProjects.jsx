@@ -1,6 +1,8 @@
 import "./FeaturedProjects.css";
 import { useEffect, useState } from "react";
 import { subscribeToCollection } from "../../firebase/homeContent";
+import AnimatedHeading from "../animations/AnimatedHeading";
+import CornerReveal from "../animations/CornerReveal";
 
 // Original hardcoded projects, used as a fallback until Firestore has data.
 const defaultProjects = [
@@ -44,7 +46,7 @@ export default function FeaturedProjects() {
   return (
     <section className="featured-projects">
 
-      <h2>Featured Projects</h2>
+      <AnimatedHeading text="Featured Projects" />
 
       <p>
         Some of our latest software and mobile solutions.
@@ -54,30 +56,32 @@ export default function FeaturedProjects() {
 
         {projects.map((project, index) => (
 
-          <div className="project-card" key={project.id || index}>
+          <CornerReveal index={index} key={project.id || index}>
+            <div className="project-card">
 
-            <img
-              src={project.image}
-              alt={project.title}
-            />
+              <img
+                src={project.image}
+                alt={project.title}
+              />
 
-            <div className="project-content">
+              <div className="project-content">
 
-              <h3>{project.title}</h3>
+                <h3>{project.title}</h3>
 
-              <span>{project.type}</span>
+                <span>{project.type}</span>
 
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-              >
-                View Project
-              </a>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View Project
+                </a>
+
+              </div>
 
             </div>
-
-          </div>
+          </CornerReveal>
 
         ))}
 

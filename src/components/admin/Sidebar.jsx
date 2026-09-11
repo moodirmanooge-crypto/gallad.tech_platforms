@@ -28,6 +28,8 @@ export default function Sidebar() {
 
         <Link to="/admin/content">Content Manager</Link>
 
+        <Link to="/admin/portfolio-content">Portfolio Manager</Link>
+
         <Link to="/admin/settings">Settings</Link>
       </nav>
     </div>

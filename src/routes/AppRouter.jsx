@@ -20,6 +20,7 @@ import Clients from "../pages/Admin/Clients";
 import Statistics from "../pages/Admin/Statistics";
 import Settings from "../pages/Admin/Settings";
 import ContentManager from "../pages/Admin/ContentManager";
+import PortfolioManager from "../pages/Admin/PortfolioManager";
 
 // Service Pages
 import AISolutions from "../pages/Services/AISolutions";
@@ -148,6 +149,12 @@ function AppRouter() {
         <Route
           path="/admin/content"
           element={<ContentManager />}
+        />
+
+        {/* Admin Portfolio Manager */}
+        <Route
+          path="/admin/portfolio-content"
+          element={<PortfolioManager />}
         />
 
       </Routes>

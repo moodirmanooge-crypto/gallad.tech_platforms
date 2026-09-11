@@ -8,6 +8,7 @@ import {
   deleteDoc,
   query,
   orderBy,
+  setDoc,
 } from "firebase/firestore";
 import {
   ref,
@@ -77,10 +78,28 @@ export async function swapOrder(collectionName, itemA, itemB) {
 
 // Upload an image file to Firebase Storage and return its public URL.
 export async function uploadImage(file, folder = "featuredProjects") {
+  return uploadFile(file, folder);
+}
+
+// Generic file upload (image or video) to Firebase Storage.
+export async function uploadFile(file, folder = "uploads") {
   const safeName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.\-_]/g, "_")}`;
   const storageRef = ref(storage, `${folder}/${safeName}`);
 
   await uploadBytes(storageRef, file);
 
   return getDownloadURL(storageRef);
+}
+
+// Live-subscribe to a single fixed document (used for single-item config,
+// like the Portfolio page's demo video).
+export function subscribeToDoc(collectionName, docId, callback) {
+  return onSnapshot(doc(db, collectionName, docId), (snap) => {
+    callback(snap.exists() ? snap.data() : null);
+  });
+}
+
+// Create or update a single fixed document.
+export async function setDocData(collectionName, docId, data) {
+  return setDoc(doc(db, collectionName, docId), data, { merge: true });
 }

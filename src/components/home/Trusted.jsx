@@ -1,4 +1,5 @@
 import "./Trusted.css";
+import SlideUp from "../animations/SlideUp";
 
 import {
   FaReact,
@@ -29,7 +30,9 @@ function Trusted() {
 
   return (
     <section className="trusted">
-      <h3>Trusted Technologies</h3>
+      <SlideUp>
+        <h3>Trusted Technologies</h3>
+      </SlideUp>
 
       <div className="marquee">
         <div className="track">

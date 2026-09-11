@@ -9,6 +9,9 @@ import {
   FaRobot,
 } from "react-icons/fa";
 
+import AnimatedHeading from "../animations/AnimatedHeading";
+import CornerReveal from "../animations/CornerReveal";
+
 const features = [
   {
     icon: <FaRocket />,
@@ -46,23 +49,25 @@ function WhyChoose() {
   return (
     <section className="why">
 
-      <h2>Why Choose GalladTech?</h2>
+      <AnimatedHeading text="Why Choose GalladTech?" highlight={["GalladTech?"]} />
 
       <div className="why-grid">
 
         {features.map((item, index) => (
 
-          <div className="why-card" key={index}>
+          <CornerReveal index={index} key={index}>
+            <div className="why-card">
 
-            <div className="why-icon">
-              {item.icon}
+              <div className="why-icon">
+                {item.icon}
+              </div>
+
+              <h3>{item.title}</h3>
+
+              <p>{item.desc}</p>
+
             </div>
-
-            <h3>{item.title}</h3>
-
-            <p>{item.desc}</p>
-
-          </div>
+          </CornerReveal>
 
         ))}
 
