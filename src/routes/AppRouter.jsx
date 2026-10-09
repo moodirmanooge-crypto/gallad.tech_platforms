@@ -12,6 +12,7 @@ import Pricing from "../pages/Pricing/Pricing";
 import Services from "../pages/Services/Services";
 import Dashboard from "../pages/UserDashboard/Dashboard";
 import Bio from "../pages/Bio/Bio";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 
 // Admin Pages
 import AdminLogin from "../pages/Admin/Login";
@@ -67,6 +68,8 @@ function AppRouter() {
         <Route path="/services" element={<Services />} />
 
         <Route path="/bio" element={<Bio />} />
+
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
 
         {/* ==================== SERVICES ==================== */}
